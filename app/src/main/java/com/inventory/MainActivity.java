@@ -18,11 +18,11 @@ import com.inventory.data.ContractHelper;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText ProductName;
-    private EditText Price;
-    private EditText Quantity;
-    private EditText SupplierName;
-    private EditText SupplierPhone;
+    private EditText mProductName;
+    private EditText mPrice;
+    private EditText mQuantity;
+    private EditText mSupplierName;
+    private EditText mSupplierPhone;
     private TextView displayView;
     private ContractHelper mContractHelper;
 
@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ProductName = (EditText) findViewById(R.id.text_name);
-        Price = (EditText) findViewById(R.id.text_price);
-        Quantity = (EditText) findViewById(R.id.text_quantity);
-        SupplierName = (EditText) findViewById(R.id.text_supplier_name);
-        SupplierPhone = (EditText) findViewById(R.id.text_supplier_phone);
+        mProductName = (EditText) findViewById(R.id.text_name);
+        mPrice = (EditText) findViewById(R.id.text_price);
+        mQuantity = (EditText) findViewById(R.id.text_quantity);
+        mSupplierName = (EditText) findViewById(R.id.text_supplier_name);
+        mSupplierPhone = (EditText) findViewById(R.id.text_supplier_phone);
         displayView = (TextView) findViewById(R.id.text_output);
         mContractHelper = new ContractHelper(this);
 
@@ -44,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void insertData() {
         // Insert into database.
-        String name = ProductName.getText().toString();
-        int price = Integer.parseInt(Price.getText().toString());
-        int quantity = Integer.parseInt(Quantity.getText().toString());
-        String supplierName = SupplierName.getText().toString();
-        String supplierPhone = SupplierPhone.getText().toString();
+        String name = mProductName.getText().toString();
+        int price = Integer.parseInt(mPrice.getText().toString());
+        int quantity = Integer.parseInt(mQuantity.getText().toString());
+        String supplierName = mSupplierName.getText().toString();
+        String supplierPhone = mSupplierPhone.getText().toString();
 
         SQLiteDatabase db = mContractHelper.getWritableDatabase();
         ContentValues values = new ContentValues();

@@ -34,6 +34,9 @@ public class ContractHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        //Do nothing now
+        // Drop older table if existed
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + InventoryEntry.TABLE_NAME);
+        // Create tables again
+        onCreate(sqLiteDatabase);
     }
 }
